@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
-import 'registro_page.dart';  // Importa la pantalla de registro
+import 'views/registro_page.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkMode = false;
+
+  void toggleTheme() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // QUITAR LA ETIQUETA "DEBUG"
       debugShowCheckedModeBanner: false,
-      title: 'Tu App',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: RegistroPage(
+        onToggleTheme: toggleTheme,
+        estaModoOscuro: isDarkMode,
       ),
-      home: RegistroPage(),  // Ponemos la pantalla de registro como inicio
     );
   }
 }
