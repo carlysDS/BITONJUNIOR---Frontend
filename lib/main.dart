@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'views/registro_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-String apiUrl = String.fromEnvironment('API_URL', defaultValue: 'http://18.100.70.40:8000/api/auth/register');
+String apiUrl = String.fromEnvironment('API_URL', defaultValue: 'http://18.100.79.40:8000/api/auth/register');
 
 
 Future <void> main() async {
