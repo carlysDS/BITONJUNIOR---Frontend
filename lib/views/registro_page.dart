@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import '../controller/registro_controller.dart';
 
 class RegistroPage extends StatefulWidget {
-  @override
-  _RegistroPageState createState() => _RegistroPageState();
-   
+ final VoidCallback onToggleTheme;
+  final bool estaModoOscuro;
 
-   final VoidCallback onToggleTheme;
-   final bool estaModoOscuro;
-
-    RegistroPage({
+  RegistroPage({
     required this.onToggleTheme,
     required this.estaModoOscuro,
-  });
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _RegistroPageState createState() => _RegistroPageState();
 }
 
 class _RegistroPageState extends State<RegistroPage> {
