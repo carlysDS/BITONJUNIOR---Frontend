@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../controller/registro_controller.dart';
 
 class RegistroPage extends StatefulWidget {
- final VoidCallback onToggleTheme;
+  final VoidCallback onToggleTheme;
   final bool estaModoOscuro;
 
   RegistroPage({
@@ -55,6 +55,21 @@ class _RegistroPageState extends State<RegistroPage> {
     );
   }
 
+    @override
+  void dispose() {
+    nombreCtrl.dispose();
+    apellido1Ctrl.dispose();
+    apellido2Ctrl.dispose();
+    telefonoCtrl.dispose();
+    poblacionCtrl.dispose();
+    correoCtrl.dispose();
+    correoConfirmCtrl.dispose();
+    passwordCtrl.dispose();
+    passwordConfirmCtrl.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,13 +82,15 @@ class _RegistroPageState extends State<RegistroPage> {
           widget.estaModoOscuro ? Icons.dark_mode : Icons.light_mode,
           ),
           onPressed: widget.onToggleTheme,
-        )
-  ]),
+        ),
+  ],
+  ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(controller: nombreCtrl, decoration: InputDecoration(labelText: 'Nombre')),
               TextFormField(controller: apellido1Ctrl, decoration: InputDecoration(labelText: 'Apellido 1')),
