@@ -15,10 +15,14 @@ dependencies:
   # Para realizar peticiones HTTP (POST, GET, etc.)
   http: ^0.13.6
 
+  # Esto es para la conexion con verser
+  flutter_dotenv: ^5.0.2
+
   # Dependencias para pruebas (opcional)
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
 flutter:
   uses-material-design: true
